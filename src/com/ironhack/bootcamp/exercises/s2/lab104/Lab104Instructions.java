@@ -34,7 +34,20 @@ public class Lab104Instructions {
      * @return Biggest element - Smallest element
      */
     public int getDifferenceBetweenBiggestAndLowestItems(int[] array)  {
-        return 0;
+        int i;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+
+        for ( i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+
+        return max - min;
     }
     /**
      * Gets an array as input argument.
@@ -45,11 +58,25 @@ public class Lab104Instructions {
      *
      * clues:
      * Integer.MAX_VALUE --> returns the biggest possible int value.
-     *
-     * @param array input array
-     * @return Biggest element - Smallest element
      */
     public void findSmallestAndNextSmallestItem(int[] array) {
+        int i;
+        int smallestItem = Integer.MAX_VALUE;
+        int secondSmallestItem = Integer.MAX_VALUE;
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] < smallestItem) {
+                smallestItem = array[i];
+            }
+        }
+
+        for (i = 0; i < array.length; i++) {
+            if (array[i] < secondSmallestItem && array[i] > smallestItem) {
+                secondSmallestItem = array[i];
+            }
+        }
+
+        System.out.println(smallestItem + " and " + secondSmallestItem);
 
     }
 
@@ -62,7 +89,9 @@ public class Lab104Instructions {
      */
     public void calculateEquation(int x, int y) {
 
-    }
+        double solution = Math.pow(x, 2) + Math.pow((4d * y / 5d - x), 2);
+        System.out.println(solution);
 
+    }
 
 }
